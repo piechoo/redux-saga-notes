@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import NoteList from "./components/NoteList";
+import {Link, Route, Switch} from "react-router-dom";
+import AddNoteForm from "./components/AddNoteForm";
+import Home from "./components/Home";
+import "./App.css"
+import './components/Button.css'
+
 
 function App() {
+
+
+  const user = useSelector((state) => state.notes);
+
+  let partners = user && user.length > 0 ?
+      user.map(p=>
+          <div> {p.title} </div>
+      ) : <span></span>;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+            <Link to="/" className='home-link' > <b>WEBCON Notes</b> </Link>
+            <Switch>
+                <Route exact path="/"><Home/></Route>
+                <Route path="/createnote"><AddNoteForm /></Route>
+            </Switch>
     </div>
   );
 }

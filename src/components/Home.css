@@ -1,0 +1,32 @@
+.searchBox{
+    padding: 0;
+    width: 60%;
+}
+#multiselectContainerReact {
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid gray;
+    border-radius: 8px;
+}
+.search-wrapper{
+    border: none;
+    border-radius: 0;
+}
+
+#inputField{
+    margin: 50px;
+
+}
+.highlight{
+    background: #6b94ff;
+}
+.chip{
+    background: #6b94ff;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchBox{
+        width: 80%;
+    }
+}
