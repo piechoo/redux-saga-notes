@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { setNotes, getNotes } from "../../slices/notesSlice";
+import {setNotes, getNotes, getSearchNotes, getTagedNotes, getLikedNotes} from "../../slices/notesSlice";
 import { requestGetNotes, requestDeleteNote , requestEditNote, requestAddNote, requestGetSearchNotes, requestGetLikedNotes, requestGetTagedNotes } from "../requests/note";
 
 export function* handleGetNotes(action) {
@@ -43,8 +43,17 @@ export function* handleGetTagedNotes(action) {
 export function* handleDeleteNote(action) {
     try {
         const { payload } = action;
-        yield call(requestDeleteNote,payload);
-        yield put(getNotes());
+        const {id,options} = payload
+        yield call(requestDeleteNote,id);
+        if(options.search)
+            yield put(getSearchNotes(options.searchItem));
+        else if(options.tag)
+            if(options.tagItem==="Polubione Notatki")
+                yield put(getLikedNotes());
+            else
+                yield put(getTagedNotes(options.tagItem));
+        else
+            yield put(getNotes());
     } catch (error) {
         console.log(error);
     }
@@ -53,8 +62,17 @@ export function* handleDeleteNote(action) {
 export function* handleEditNote(action) {
     try {
         const { payload } = action;
-        yield call(requestEditNote,payload);
-        yield put(getNotes());
+        const {data, options } = payload
+        yield call(requestEditNote,data);
+        if(options.search)
+            yield put(getSearchNotes(options.searchItem));
+        else if(options.tag)
+            if(options.tagItem==="Polubione Notatki")
+                yield put(getLikedNotes());
+            else
+                yield put(getTagedNotes(options.tagItem));
+        else
+            yield put(getNotes());
     } catch (error) {
         console.log(error);
     }

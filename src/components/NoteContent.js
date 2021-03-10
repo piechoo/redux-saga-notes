@@ -12,7 +12,7 @@ function NoteContent(props) {
     const options = useSelector((state) => state.options);
     const deleteFunciton = (id,title)=>{
         if(window.confirm(`Czy usunąć notatkę "${title}"?`)) {
-            dispatch(deleteNote(id))
+            dispatch(deleteNote({id,options}))
             dispatch(getTags());
         }
     }

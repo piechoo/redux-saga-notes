@@ -12,7 +12,6 @@ import {setTag, setSearch, freeSearch, freeTag} from "../redux/slices/optionsSli
 const Home = (props)=> {
 
 
-
     const [selectedTag, setSelectedTag] = useState('');
     const [selectedSearch, setSelectedSearch] = useState('');
 

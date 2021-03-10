@@ -3,7 +3,7 @@ import './Note.scss'
 import "./Button.scss"
 import NoteContent from "./NoteContent";
 import { editNote} from "../redux/slices/notesSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Note = (props)=> {
@@ -16,7 +16,7 @@ const Note = (props)=> {
         setOpen(!open)
     }
 
-
+    const options = useSelector((state) => state.options);
     const toggleCheckboxChange=()=>  {
         let data ={
             id:props.id,
@@ -25,7 +25,7 @@ const Note = (props)=> {
             title:props.title,
             content:props.content
         }
-        dispatch(editNote(data));
+        dispatch(editNote({data,options}));
         setChecked(!checked)
     }
 

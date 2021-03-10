@@ -3,7 +3,6 @@ import './Tag.scss'
 
 class Tags extends Component {
 
-
     constructor(props) {
         super(props);
         this.state ={

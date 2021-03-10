@@ -30,6 +30,7 @@ export function requestGetTagedNotes(tag) {
 
 
 export function requestDeleteNote(id) {
+    console.log(id)
     return axios.request({
         method: "delete",
         url: `http://localhost:3000/notes/${id}`
