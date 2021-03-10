@@ -4,8 +4,8 @@
 }
 #multiselectContainerReact {
     background-color: white;
-    width: 80%;
-    margin: 0 auto;
+    width: 70%;
+    margin: 0 15%;
     border: 2px solid gray;
     border-radius: 8px;
 }
@@ -13,7 +13,6 @@
     border: none;
     border-radius: 0;
 }
-
 #inputField{
     margin: 50px;
 
@@ -28,5 +27,17 @@
 @media only screen and (max-width: 600px) {
     .searchBox{
         width: 80%;
+    }
+    #multiselectContainerReact {
+        width: 90%;
+        margin: 0 5%;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+
+    #multiselectContainerReact {
+        width: 90%;
+        margin: 0 5%;
     }
 }

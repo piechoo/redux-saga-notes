@@ -1,12 +1,11 @@
-import React, {Component, useState} from "react";
-import './Note.css'
-import "./Button.css"
+import React, { useState} from "react";
+import './Note.scss'
+import "./Button.scss"
 import NoteContent from "./NoteContent";
-import {deleteNote, editNote} from "../redux/slices/notesSlice";
+import { editNote} from "../redux/slices/notesSlice";
 import {useDispatch} from "react-redux";
 
 
-//TODO zrobic zeby bylo pure component i nie rerenderowalo przy kliknieciu na rozwiniecie
 const Note = (props)=> {
 
     const [open, setOpen] = useState(false);
@@ -17,11 +16,6 @@ const Note = (props)=> {
         setOpen(!open)
     }
 
-    const deletenote = () => {
-        if(window.confirm("Czy usunąć notatkę ?"))
-            dispatch(deleteNote(props.id))
-
-    }
 
     const toggleCheckboxChange=()=>  {
         let data ={
@@ -37,22 +31,20 @@ const Note = (props)=> {
 
         return (
             <div className="note">
-                <div className="btn btn-block" >
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th className='title' onClick={dropdown}>{props.title} </th>
-                                <th>
-                                    <label className={checked ? 'checked serce' : 'serce'}>
-                                        <input className="toggle-heart" type="checkbox" checked={checked ? 'checked' : ""} onChange={toggleCheckboxChange}/>
-                                        ❤
-                                    </label>
-                                </th>
-                            </tr>
-                            { open ? <NoteContent title={props.title} content={props.content} tags={props.tags} id={props.id} fav={props.fav}></NoteContent> : <tr></tr> }
-                        </tbody>
-                    </table>
-                </div>
+                <table className="note__table">
+                    <tbody>
+                    <tr>
+                        <th className='note__title' onClick={dropdown}>{props.title} </th>
+                        <th>
+                            <label className={checked ? 'note__heart note__heart--checked' : 'note__heart'}>
+                                <input className="note__checkbox" type="checkbox" onChange={toggleCheckboxChange}/>
+                                ❤
+                            </label>
+                        </th>
+                    </tr>
+                    { open ? <NoteContent title={props.title} content={props.content} tags={props.tags} id={props.id} fav={props.fav}></NoteContent> : <tr></tr> }
+                    </tbody>
+                </table>
             </div>
         );
 };

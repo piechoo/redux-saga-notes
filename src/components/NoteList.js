@@ -1,15 +1,9 @@
-import React, { useEffect} from "react";
+import React from "react";
 import Note from "./Note";
-import { useDispatch, useSelector } from "react-redux";
 
-import { getNotes } from "../redux/slices/notesSlice";
 
 
 function NoteList(props) {
-
-    const dispatch = useDispatch();
-
-
 
     const notes = props.notes
 

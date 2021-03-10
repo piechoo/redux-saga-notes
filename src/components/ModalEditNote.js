@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
-import "./Form.css"
-import "./Button.css"
-import './Modal.css'
+import "./Form.scss"
+import './Modal.scss'
 import Popup from "reactjs-popup";
 import {useDispatch} from "react-redux";
 import {editNote} from "../redux/slices/notesSlice";
@@ -42,49 +41,48 @@ const ModalEditNote = (props) => {
         }
         dispatch(editNote(data));
         dispatch(getTags());
-
     }
 
         return (
             <Popup
-                trigger={<button className="buton small"> Edytuj notatkę </button>}
+                trigger={<button className="buttons__button"> Edytuj notatkę </button>}
                 modal
                 nested
             >
                 {close => (
                     <div className="modal">
-                        <button className="close" onClick={()=>{close(); defaultValues()}}>
+                        <button className="modal__close-btn" onClick={()=>{close(); defaultValues()}}>
                             &times;
                         </button>
-                        <div className="header"> Edytuj notatkę </div>
+                        <div className="modal__header"> Edytuj notatkę </div>
                         <div className="content">
-                            <form onSubmit={()=>{handleSubmit(close())}}>
-                                <label >Wpisz tytuł notatki:<br/></label>
-                                <input
-                                    type="text"
-                                    onChange={event => setTitle(event.target.value )}
-                                    value={title}
-                                    required
+                            <form className='content__form' onSubmit={()=>{handleSubmit(close())}}>
+                                <label className='content__label content__label--modal' >Wpisz tytuł notatki:<br/></label>
+                                <input className='content__input'
+                                       type="text"
+                                       onChange={event => setTitle(event.target.value )}
+                                       value={title}
+                                       required
                                 />
                                 <br/>
-                                <label>Tagi notatki (oddzielone przecinkiem):<br/></label>
-                                <input
-                                    type="text"
-                                    onChange={event => setTags(event.target.value )}
-                                    value={tags}
+                                <label className='content__label content__label--modal' >Tagi notatki (oddzielone przecinkiem):<br/></label>
+                                <input className='content__input'
+                                       type="text"
+                                       onChange={event => setTags(event.target.value )}
+                                       value={tags}
 
                                 />
                                 <br/>
-                                <label>Wpisz zawartość notatki:<br/></label>
-                                <textarea
-                                    onChange={event => setContent( event.target.value )}
-                                    value={content}
-                                    required
+                                <label className='content__label content__label--modal'>Wpisz zawartość notatki:<br/></label>
+                                <textarea className='content__textarea'
+                                          onChange={event => setContent( event.target.value )}
+                                          value={content}
+                                          required
                                 />
                                 <br/>
-                                <button className="buton big giga">Edytuj</button>
+                                <button className="content__button">Edytuj</button>
                             </form>
-                            <button className="buton big giga"  onClick={() =>{close(); defaultValues()}} >Anuluj</button>
+                            <button className="content__button content__button--last"  onClick={() =>{close(); defaultValues()}} >Anuluj</button>
                         </div>
                     </div>
                 )}

@@ -1,0 +1,33 @@
+
+.container{
+    margin: 2% 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    text-align: center;
+
+    &__button{
+        color: inherit;
+        text-decoration: inherit;
+        background-color: #edf2fb ;
+        border:none;
+        cursor: pointer;
+        padding: 1% 1%;
+        width: 40%;
+        margin: 2% auto;
+        font-size: 140%;
+        border-radius: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container{
+        margin: 5% 0;
+
+        &__button{
+            padding: 3%;
+            width: 80%;
+            margin-bottom:5% ;
+        }
+    }
+}

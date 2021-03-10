@@ -7,6 +7,7 @@ import createSagaMiddleware from "redux-saga";
 import { watcherSaga } from "./sagas/rootSaga";
 import notesReducer from "./slices/notesSlice";
 import tagReducer from "./slices/tagSlice";
+import optionsReducer from "./slices/optionsSlice";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,7 +15,8 @@ const sagaMiddleware = createSagaMiddleware();
 const reducer = combineReducers({
 
     notes: notesReducer,
-    tags: tagReducer
+    tags: tagReducer,
+    options: optionsReducer,
 });
 
 const store = configureStore({

@@ -1,0 +1,126 @@
+.note{
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: #c1d3fe;
+    text-align: center;
+    margin: 0px 15%;
+    border-radius: 6px;
+
+
+    &__table{
+        width: 100%;
+        border: 1px solid #22577a;
+        border-radius: 6px;
+        table-layout: fixed;
+        display: table;
+    }
+
+    &__title{
+        width: 80%;
+        cursor: pointer;
+        font-size: 150%;
+    }
+
+    &__heart {
+        color: #aab8c2;
+        cursor: pointer;
+        font-size: 2em;
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+    }
+
+    &__heart--checked {
+        color: #e2264d ;
+    }
+
+    &__checkbox {
+        position: absolute;
+        left: -100vw;
+    }
+}
+@media only screen and (max-width: 1025px) {
+
+    .note {
+        margin: 0px 5%;
+    }
+}
+
+.collapse {
+    min-width: 100%;
+    display: table;
+    overflow:auto;
+    :focus{
+        outline: none;
+    }
+
+    &__content {
+        width: 80%;
+        float: left;
+        font-size: 120%;
+
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .collapse {
+        overflow:auto;
+
+        &__content{
+            width: 90%;
+            font-size: 120%;
+            padding: 0 5%;
+        }
+    }
+
+}
+
+.buttons{
+    vertical-align: top;
+    width:20%;
+    float: right;
+
+    &__button{
+        display: block;
+        margin: 4% 5%;
+        background-color: #edf2fb ;
+        border:none;
+        cursor: pointer;
+        padding: 2%;
+        width: 90%;
+        font-size: 1em;
+        border-radius: 15px;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .buttons {
+        width: 80%;
+        float: none;
+        margin: 0 0 0 10%;
+
+        &__button {
+            background-color: #edf2fb;
+            border: none;
+            cursor: pointer;
+            padding: 2%;
+            width: 90%;
+            font-size: 1em;
+            border-radius: 15px;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+

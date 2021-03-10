@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Tag.css'
+import './Tag.scss'
 
 class Tags extends Component {
 
@@ -25,7 +25,7 @@ class Tags extends Component {
         return (
             <div className='tagContainer'>
                 {this.state.tags.map((tag) => (
-                    <div key={tag} className='tag'>{tag}</div>
+                    <div key={tag} className='tagContainer--tag'>{tag}</div>
                 ))}
             </div>
         );
