@@ -13,7 +13,6 @@ import optionsReducer from "./slices/optionsSlice";
 const sagaMiddleware = createSagaMiddleware();
 
 const reducer = combineReducers({
-
     notes: notesReducer,
     tags: tagReducer,
     options: optionsReducer,

@@ -1,6 +1,6 @@
 import React from "react";
 import Note from "./Note";
-
+import "./NoteList.scss"
 
 
 function NoteList(props) {
@@ -10,12 +10,10 @@ function NoteList(props) {
     let rendering = notes && notes.length > 0 ?
         notes.map(note=>
             <Note key={note.id} title ={note.title} id={note.id} fav={note.fav} content={note.content} tags={note.tags} ></Note>
-        ) : <span></span>;
-
-   let Styling = {paddingBottom:"30px"};
+        ) : <span className="noteList__empty"><b>BRAK NOTATEK !</b></span>;
 
     return (
-        <div style={Styling}>
+        <div className="noteList" >
             {rendering}
         </div>
     );

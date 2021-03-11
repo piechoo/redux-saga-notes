@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect} from "react";
 import {Multiselect} from "multiselect-react-dropdown";
 import AddNoteButton from "./AddNoteButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,11 +9,7 @@ import {getTags} from "../redux/slices/tagSlice";
 import {setTag, setSearch, freeSearch, freeTag} from "../redux/slices/optionsSlice";
 
 
-const Home = (props)=> {
-
-
-    const [selectedTag, setSelectedTag] = useState('');
-    const [selectedSearch, setSelectedSearch] = useState('');
+const Home = ()=> {
 
     const dispatch = useDispatch();
 
@@ -22,9 +18,9 @@ const Home = (props)=> {
         dispatch(getNotes());
     }, [dispatch]);
 
-    var tags = []
+    let tags = []
     tags = useSelector((state) => state.tags);
-    var notes = useSelector((state) => state.notes);
+    let notes = useSelector((state) => state.notes);
 
     if(tags.length!==0) {
         var tagi = tags.filter(item => item !== '')
@@ -33,7 +29,6 @@ const Home = (props)=> {
 
 
     const onSelect = (selectedList, selectedItem) => {
-
         dispatch(setTag({tagItem:selectedItem}))
         if ( selectedItem === "Polubione Notatki")
             dispatch(getLikedNotes())
@@ -42,14 +37,13 @@ const Home = (props)=> {
     }
 
     const onSearch = ( searchItem) =>{
-        dispatch(setSearch({searchItem:searchItem}))
+        dispatch(setSearch({searchItem}))
         dispatch(getSearchNotes(searchItem))
         if(searchItem==='')
             dispatch(freeSearch())
     }
 
     const onRemove = (selectedList, removedItem) => {
-        setSelectedTag('')
         dispatch(getNotes())
         dispatch(freeTag())
     }

@@ -14,7 +14,6 @@ export function* watcherSaga() {
     yield takeEvery(addNote.type, handleAddNote);
     yield takeEvery(likeNote.type, handleLikeNote);
 
-
     yield takeEvery(getTags.type, handleGetTags);
 
 }

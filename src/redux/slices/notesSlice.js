@@ -9,8 +9,8 @@ const notesSlice = createSlice({
         getNotes(state,action ) {
         },
         setNotes(state, action) {
-            const userData = action.payload.data;
-            return  userData ;
+            const note = action.payload.data;
+            return  note ;
         },
         deleteNote(state, action) {
         },

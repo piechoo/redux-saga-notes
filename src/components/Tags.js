@@ -24,7 +24,7 @@ class Tags extends Component {
         return (
             <div className='tagContainer'>
                 {this.state.tags.map((tag) => (
-                    <div key={tag} className='tagContainer--tag'>{tag}</div>
+                    <div key={tag} className='tagContainer__tag'>{tag}</div>
                 ))}
             </div>
         );

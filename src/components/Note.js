@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import './Note.scss'
 import "./Button.scss"
 import NoteContent from "./NoteContent";
-import { editNote} from "../redux/slices/notesSlice";
+import {editNote} from "../redux/slices/notesSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 

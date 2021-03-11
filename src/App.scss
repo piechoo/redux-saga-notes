@@ -8,9 +8,10 @@
   height: 100%;
   min-height: 100vh;
   text-align: center;
-}
-.main__link {
-  color: inherit;
-  text-decoration: inherit;
-  font-size: 3em;
+
+  &__link {
+    color: inherit;
+    text-decoration: inherit;
+    font-size: 3em;
+  }
 }
