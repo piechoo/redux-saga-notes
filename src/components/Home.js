@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, {useEffect} from "react";
 import {Multiselect} from "multiselect-react-dropdown";
 import AddNoteButton from "./AddNoteButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import {getTags} from "../redux/slices/tagSlice";
 import {setTag, setSearch, freeSearch, freeTag} from "../redux/slices/optionsSlice";
 
 
-const Home = ()=> {
+function Home () {
 
     const dispatch = useDispatch();
 
@@ -49,6 +49,7 @@ const Home = ()=> {
     }
 
         return (
+
                 <div className='home'>
                     <Multiselect
                         selectionLimit={1}

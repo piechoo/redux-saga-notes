@@ -1,8 +1,9 @@
 import React from "react";
 import {Link, Route, Switch} from "react-router-dom";
-import AddNoteForm from "./components/AddNoteForm";
+
 import Home from "./components/Home";
 import "./App.scss"
+import NoteForm from "./components/NoteForm";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
             <Link to="/" className='main__link' > <b>WEBCON Notes</b> </Link>
             <Switch>
                 <Route exact path="/"><Home/></Route>
-                <Route path="/createnote"><AddNoteForm /></Route>
+                <Route path="/createnote"><NoteForm edit={false} accept='Dodaj!' title='' content='' tags='' /></Route>
             </Switch>
     </div>
   );

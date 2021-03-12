@@ -1,11 +1,12 @@
 import React from "react";
 import Note from "./Note";
 import "./NoteList.scss"
+import PropTypes from 'prop-types'
 
 
 function NoteList(props) {
 
-    const notes = props.notes
+    const {notes} = props
 
     let rendering = notes && notes.length > 0 ?
         notes.map(note=>
@@ -18,5 +19,10 @@ function NoteList(props) {
         </div>
     );
 }
-
+NoteList.propTypes = {
+    notes: PropTypes.array
+}
+NoteList.defaultProps = {
+    notes: []
+};
 export default NoteList

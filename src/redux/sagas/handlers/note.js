@@ -1,6 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import {setNotes, getNotes, getSearchNotes, getTagedNotes, getLikedNotes} from "../../slices/notesSlice";
 import { requestGetNotes, requestDeleteNote , requestEditNote, requestAddNote, requestGetSearchNotes, requestGetLikedNotes, requestGetTagedNotes } from "../requests/note";
+import {putError} from "../../slices/optionsSlice";
 
 export function* handleGetNotes(action) {
     try {
@@ -94,6 +95,7 @@ export function* handleAddNote(action) {
         yield call(requestAddNote,payload);
         yield put(getNotes());
     } catch (error) {
+        yield put(putError());
         console.log(error);
     }
 }

@@ -29,7 +29,17 @@
         border: 1px solid #cfcece;
     }
 }
-
+@media (orientation: landscape) and  (max-width: 800px){
+    .modal {
+        height: 100vh;
+        &__header{
+            font-size: 150%;
+        }
+        &__close-btn{
+            display: none;
+        }
+    }
+}
 .content {
     text-align: center;
     background-color: #d7e3fc ;
@@ -38,8 +48,8 @@
 }
 @media only screen and (max-width: 600px) {
     .content{
-        font-size: 120%;
-        max-height: 90vh;
+        font-size: 100%;
+
     }
 }
 
@@ -61,5 +71,11 @@
 @media only screen and (max-width: 600px) {
     .popup-content {
         width: 90%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px){
+    .popup-content {
+        width: 100%;
     }
 }

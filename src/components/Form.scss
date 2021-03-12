@@ -34,7 +34,6 @@
     &__button{
         background-color: #edf2fb ;
         border:none;
-        cursor: pointer;
         padding: 1% 1%;
         width: 40%;
         margin: 1% auto;
@@ -78,6 +77,41 @@
 
             &__button--last {
                 margin-bottom: 4%;
+            }
+        }
+    }
+}
+
+@media (orientation: landscape ) and (max-device-width: 800px) {
+    .content {
+
+        &__form{
+
+            margin: 0;
+        }
+        &__input{
+            width: 90%;
+            padding: 1%;
+            border-radius: 15px;
+            border: none;
+
+        }
+
+        &__textarea{
+            height: auto;
+            width:90%;
+            padding: 1%;
+            border-radius: 15px;
+            border: none;
+            margin: 0;
+        }
+
+        &__button {
+            width: 80%;
+            margin: 1% auto;
+
+            &__button--last {
+                margin-bottom: 0%;
             }
         }
     }

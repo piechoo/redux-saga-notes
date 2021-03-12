@@ -6,7 +6,8 @@ const optionsSlice = createSlice({
         search:false,
         searchItem:'',
         tag:false,
-        tagItem:''
+        tagItem:'',
+        error:false
     },
     reducers: {
         setTag(state,action ) {
@@ -35,10 +36,20 @@ const optionsSlice = createSlice({
                 searchItem:''
             });
         },
+        putError(state,action ) {
+            return Object.assign({}, state, {
+                error:true
+            });
+        },
+        freeError(state,action ) {
+            return Object.assign({}, state, {
+                error:false
+            });
+        }
 
     }
 });
 
-export const { setTag, setSearch, freeSearch, freeTag} = optionsSlice.actions;
+export const { setTag, setSearch, freeSearch, freeTag, putError, freeError} = optionsSlice.actions;
 
 export default optionsSlice.reducer;

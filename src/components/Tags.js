@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './Tag.scss'
+import PropTypes from "prop-types";
 
-class Tags extends Component {
+class Tags extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -30,5 +31,12 @@ class Tags extends Component {
         );
     }
 }
+
+Tags.propTypes = {
+    tags: PropTypes.string,
+}
+Tags.defaultProps = {
+    tags: 'tagi,domyślnej, notatki',
+};
 
 export default Tags;

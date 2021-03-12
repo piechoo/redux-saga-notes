@@ -1,9 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
-import React from "react";
+import React,{memo} from "react";
 import {deleteNote} from "../redux/slices/notesSlice";
 import Tags from "./Tags";
 import ModalEditNote from "./ModalEditNote";
 import {getTags} from "../redux/slices/tagSlice";
+import PropTypes from "prop-types";
 
 function NoteContent(props) {
 
@@ -18,6 +19,7 @@ function NoteContent(props) {
     }
 
     return (
+
         <tr>
             <td colSpan="2" >
                 <div className="collapse">
@@ -26,7 +28,7 @@ function NoteContent(props) {
                         <Tags key={props.tags} tags = {props.tags}></Tags>
                     </div>
                     <div className="buttons">
-                        <ModalEditNote id={props.id} title={props.title} tags={props.tags} content={props.content} fav={props.fav}></ModalEditNote>
+                        <ModalEditNote {...props}></ModalEditNote>
                         <button className="buttons__button" onClick={()=>deleteFunction(props.id, props.title)}>Usuń notatkę</button>
                     </div>
                 </div>
@@ -35,4 +37,18 @@ function NoteContent(props) {
     );
 }
 
-export default NoteContent
+NoteContent.propTypes = {
+    title: PropTypes.string,
+    content: PropTypes.string,
+    tags: PropTypes.string,
+    id: PropTypes.string,
+    fav: PropTypes.bool
+}
+NoteContent.defaultProps = {
+    title: 'tytul domyślnej notatki',
+    content: 'zawartosc domyślnej notatki',
+    tags: 'tagi,domyślnej, notatki',
+    id: '123',
+    fav: false
+};
+export default memo(NoteContent)

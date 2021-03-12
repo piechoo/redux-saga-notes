@@ -15,6 +15,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "multiselect-react-dropdown": "^1.6.11",
     "node-sass": "^5.0.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1",
@@ -48,11 +49,10 @@
       "not op_mini all"
     ],
     "development": [
-      "ie 9",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version",
-      "not dead"
+      "ie 11"
     ]
   },
   "devDependencies": {

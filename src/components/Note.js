@@ -1,9 +1,11 @@
-import React, { useState} from "react";
+import React, {memo, useState} from "react";
 import './Note.scss'
 import "./Button.scss"
 import NoteContent from "./NoteContent";
 import {editNote} from "../redux/slices/notesSlice";
 import {useDispatch, useSelector} from "react-redux";
+import PropTypes from "prop-types";
+
 
 
 const Note = (props)=> {
@@ -17,7 +19,7 @@ const Note = (props)=> {
     }
 
     const options = useSelector((state) => state.options);
-    const toggleCheckboxChange=()=>  {
+    const handleCheckboxChange=()=>  {
         let data ={
             id:props.id,
             fav:!checked,
@@ -37,16 +39,31 @@ const Note = (props)=> {
                         <th className='note__title' onClick={dropdown}>{props.title} </th>
                         <th>
                             <label className={checked ? 'note__heart note__heart--checked' : 'note__heart'}>
-                                <input className="note__checkbox" type="checkbox" onChange={toggleCheckboxChange}/>
+                                <input className="note__checkbox" type="checkbox" onChange={handleCheckboxChange}/>
                                 ❤
                             </label>
                         </th>
                     </tr>
-                    { open ? <NoteContent title={props.title} content={props.content} tags={props.tags} id={props.id} fav={props.fav}></NoteContent> : <tr></tr> }
+                    { open ? <NoteContent {...props}></NoteContent> : <tr></tr> }
                     </tbody>
                 </table>
             </div>
         );
 };
 
-export default Note
+Note.propTypes = {
+    title: PropTypes.string,
+    content: PropTypes.string,
+    tags: PropTypes.string,
+    id: PropTypes.string,
+    fav: PropTypes.bool
+}
+Note.defaultProps = {
+    title: 'tytul domyślnej notatki',
+    content: 'zawartosc domyślnej notatki',
+    tags: 'tagi,domyślnej, notatki',
+    id: '123',
+    fav: false
+};
+
+export default memo(Note)
